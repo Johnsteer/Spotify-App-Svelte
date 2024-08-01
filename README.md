@@ -1,38 +1,59 @@
-# create-svelte
+# Spotify User Profile Dashboard
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Project Overview
 
-## Creating a project
+This project is a personal web application that displays insights about a user's Spotify profile. It's primarily designed as a learning experience to gain hands-on experience with full-stack web development.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Project Goals
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The main objectives of this project are:
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+1. To gain practical experience in full-stack web development
+2. To learn and implement the Svelte framework
+3. To work with data from external APIs (Spotify Web API)
+4. To practice database design and management with PostgreSQL
+5. To improve skills in front-end design and data visualization
 
-## Developing
+## Technologies Used
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- **Front-end**: Svelte, HTML5, CSS3
+- **Back-end**: Node.js
+- **Database**: PostgreSQL
+- **API**: Spotify Web API
+- **ETL Process**: Custom Python script to extract, transform, and load data
 
-```bash
-npm run dev
+## Project Structure
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. **ETL Process**: A separate project that pulls data from the Spotify Web API and stores it in a PostgreSQL database.
+2. **Web Application**: A Svelte app that displays the user's Spotify data in an interactive dashboard.
 
-## Building
+## Current Status
 
-To create a production version of your app:
+The project is in its initial stages. The front-end template has been created using HTML and CSS, with guidance from Claude AI. This template has been incorporated into a new Svelte app. The next steps involve:
 
-```bash
-npm run build
-```
+1. Connecting the Svelte app to the PostgreSQL database
+2. Implementing data visualization components
+3. Adding interactivity to the dashboard
+4. Refining the design and user experience
 
-You can preview the production build with `npm run preview`.
+## Acknowledgements
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- The initial HTML/CSS template for the dashboard was created with assistance from Claude AI.
+- This project uses data from the Spotify Web API.
+
+## Disclaimer
+
+This is a personal project for educational purposes and is not affiliated with or endorsed by Spotify.
+
+## Future Plans
+
+- Implement user authentication
+- Add more detailed analytics and insights
+- Explore additional features of the Spotify API
+- Optimize performance and scalability
+
+## Contact
+
+John Steer - johnsteer3@gmail.com
+
+Feel free to reach out if you have any questions or suggestions!
