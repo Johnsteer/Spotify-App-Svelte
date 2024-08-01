@@ -67,7 +67,7 @@
 
     <!-- Footer section -->
     <footer class="footer">
-        <p>HTML/CSS courtesy of our friend Claude :P</p>
+        <p>HTML/CSS starter template courtesy of our friend Claude :P</p>
     </footer>
 </div>
 
