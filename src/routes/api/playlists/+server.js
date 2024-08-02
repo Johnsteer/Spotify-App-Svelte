@@ -1,12 +1,21 @@
 import { json } from '@sveltejs/kit';
-import prisma from '$lib/prisma.js';
+import { PrismaClient } from '@prisma/client';
+import { DATABASE_URL } from '$env/static/private';
+
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: DATABASE_URL,
+    },
+  },
+});
 
 export async function GET() {
-    try {
-      const playlists = await prisma.playlists.findMany();
-      console.log(playlists);
-      return json(playlists);
-    } catch (error) {
-      return json({ error: error.message }, { status: 500 });
-    }
+  try {
+    const playlists = await prisma.playlists.findMany();
+    return json(playlists);
+  } catch (error) {
+    console.error('Error fetching playlists:', error);
+    return json({ error: 'Failed to fetch playlists' }, { status: 500 });
   }
+}

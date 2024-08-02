@@ -1,14 +1,26 @@
 
 <script>
-    import {onMount} from 'svelte';
+    import { onMount } from 'svelte';
 
     let playlists = [];
-    console.log(playlists);
-    onMount(async() => {
-        const response = await fetch('/api/playlists');
+    let playlists_top3 = [];
+    let error = null;
+    
+    onMount(async () => {
+        try {
+            const response = await fetch('/api/playlists');
+            if (!response.ok) {
+                throw new Error('Failed to fetch playlists');
+            }
+            playlists = await response.json();
+            playlists_top3 = playlists.slice(0,3);
+            console.log(playlists_top3);
+        } catch (e) {
+            console.error('Error:', e);
+            error = e.message;
+        }
     });
 </script>
-
 
 <div class="dashboard">
     <!-- Header section -->
@@ -40,11 +52,18 @@
         <section class="card playlists">
             <h2>Playlists</h2>
             <p>Total: [Number of playlists]</p>
-            <ul class="playlist-list">
-                <li>[Playlist 1]</li>
-                <li>[Playlist 2]</li>
-                <li>[Playlist 3]</li>
-            </ul>
+            {#if error}
+                <p class="error">Error: {error}</p>
+            {:else if playlists_top3.length === 0}
+                <p>Loading Playlists...</p>
+            {:else}
+                <ul class="playlist-list">                  
+                    <!-- Iterate through array of objects and display name value-->
+                    {#each playlists_top3 as playlist}
+                    <li>{playlist.name}</li>
+                    {/each}
+                </ul>
+            {/if}
         </section>
 
         <!-- Top Artists section -->
