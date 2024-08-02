@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model audio_features {
+  danceability     String?
+  energy           String?
+  key              String?
+  loudness         String?
+  mode             String?
+  speechiness      String?
+  acousticness     String?
+  instrumentalness String?
+  liveness         String?
+  valence          String?
+  tempo            String?
+  type             String?
+  id               String?
+  uri              String?
+  track_href       String?
+  analysis_url     String?
+  duration_ms      String?
+  time_signature   String?
+  ingest_date      String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model followed_artists {
+  id          String?
+  name        String?
+  genres      String?
+  popularity  String?
+  followers   String?
+  ingest_date String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model playlists {
+  id            String  @id
+  href          String?
+  name          String?
+  owner         String?
+  public        String?
+  collaborative String?
+  tracks        String?
+  ingest_date   String?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model playlists_tracks {
+  id          String?
+  name        String?
+  artist      String?
+  album       String?
+  playlist_id String?
+  ingest_date String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model recent_tracks {
+  id          String?
+  name        String?
+  artist      String?
+  album       String?
+  played_at   String?
+  ingest_date String?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model saved_tracks {
+  id          String?
+  name        String?
+  artist      String?
+  album       String?
+  added_at    String?
+  ingest_date String?
+
+  @@ignore
+}

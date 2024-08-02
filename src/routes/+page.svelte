@@ -1,4 +1,15 @@
 
+<script>
+    import {onMount} from 'svelte';
+
+    let playlists = [];
+    console.log(playlists);
+    onMount(async() => {
+        const response = await fetch('/api/playlists');
+    });
+</script>
+
+
 <div class="dashboard">
     <!-- Header section -->
     <header class="header">
